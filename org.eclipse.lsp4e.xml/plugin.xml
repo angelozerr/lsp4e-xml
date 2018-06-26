@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.eclipse.core.runtime.xml"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+      
+   <extension
+         point="org.eclipse.lsp4e.languageServer">
+      <server
+            class="org.eclipse.lsp4e.xml.XMLLanguageServer"
+            id="org.eclipse.lsp4e.xml"
+            label="XML Language Server" >
+      </server>
+      <contentTypeMapping
+            contentType="org.eclipse.core.runtime.xml"
+            id="org.eclipse.lsp4e.xml">
+      </contentTypeMapping>
+   </extension>
+   
+   <extension
+         point="org.eclipse.tm4e.registry.grammars">
+      <grammar
+            path="./syntaxes/xml.tmLanguage.json"
+            scopeName="text.xml">
+      </grammar>
+      <scopeNameContentTypeBinding
+            contentTypeId="org.eclipse.core.runtime.xml"
+            scopeName="text.xml">
+      </scopeNameContentTypeBinding>
+   </extension>
+
+   <extension
+         point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
+      <languageConfiguration
+            contentTypeId="org.eclipse.core.runtime.xml"
+            path="language-configurations/xml.language-configuration.json">
+      </languageConfiguration>
+   </extension>
+
+   <extension
+         point="org.eclipse.tm4e.ui.snippets">
+      <snippet
+            name="XML Sample"
+            path="snippets/sample.xml"
+            scopeName="text.xml">
+      </snippet>
+   </extension>
+
+</plugin>
