@@ -37,8 +37,9 @@ import org.osgi.framework.Bundle;
  */
 public class XMLLanguageServer extends ProcessStreamConnectionProvider {
 
-	private static final String[] SERVER_JARS = new String[] { "org.eclipse.xml.languageserver-all.jar",
-			"xercesImpl-2.11.0.jar", "xml-apis-1.4.01.jar", "org.eclipse.xml.languageserver.xsd-0.0.1-SNAPSHOT.jar" };
+	private static final String[] SERVER_JARS = new String[] { "org.eclipse.lsp4j-0.4.1.jar",
+			"org.eclipse.lsp4xml-0.0.1-SNAPSHOT.jar",
+			"org.eclipse.lsp4xml.contentmodel-0.0.1-SNAPSHOT.jar", "xercesImpl-2.11.0.jar", "xml-apis-1.4.01.jar" };
 
 	public XMLLanguageServer() {
 		super(computeCommands(), computeWorkingDir());
@@ -62,7 +63,7 @@ public class XMLLanguageServer extends ProcessStreamConnectionProvider {
 		}
 		commands.add("-classpath");
 		commands.add(computeXMLLanguageServerJarPath());
-		commands.add("org.eclipse.xml.languageserver.XMLServerLauncher");
+		commands.add("org.eclipse.lsp4xml.XMLServerLauncher");
 		return commands;
 	}
 
@@ -97,7 +98,7 @@ public class XMLLanguageServer extends ProcessStreamConnectionProvider {
 				return file.getAbsolutePath();
 			}
 		} catch (URISyntaxException | IOException exception) {
-			XMLPlugin.log(new Status(IStatus.ERROR, XMLPlugin.PLUGIN_ID, "Cannot get the FreeMarker LSP Server jar.", //$NON-NLS-1$
+			XMLPlugin.log(new Status(IStatus.ERROR, XMLPlugin.PLUGIN_ID, "Cannot get the XML LSP Server jar.", //$NON-NLS-1$
 					exception));
 		}
 		return "";
@@ -129,7 +130,7 @@ public class XMLLanguageServer extends ProcessStreamConnectionProvider {
 
 		public void check() throws IOException {
 			if (message != null) {
-				//throw new IOException(message);
+				// throw new IOException(message);
 			}
 			if (!process.isAlive()) {
 				throw new IOException("Process is not alive"); //$NON-NLS-1$

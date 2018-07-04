@@ -22,7 +22,7 @@
             id="org.eclipse.lsp4e.xml">
       </contentTypeMapping>
    </extension>
-   
+
    <extension
          point="org.eclipse.tm4e.registry.grammars">
       <grammar
@@ -52,4 +52,76 @@
       </snippet>
    </extension>
 
+   <!-- XSL -->
+
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            file-extensions="xsl"
+            id="org.eclipse.lsp4e.xsl"
+            name="XSL"
+            priority="normal"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.eclipse.lsp4e.xsl"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+
+   <extension
+         point="org.eclipse.tm4e.registry.grammars">
+      <grammar
+            path="./syntaxes/xsl.tmLanguage.json"
+            scopeName="text.xml.xsl">
+      </grammar>
+      <scopeNameContentTypeBinding
+            contentTypeId="org.eclipse.lsp4e.xsl"
+            scopeName="text.xml.xsl">
+      </scopeNameContentTypeBinding>
+   </extension>
+
+   <extension
+         point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
+      <languageConfiguration
+            contentTypeId="org.eclipse.lsp4e.xsl"
+            path="language-configurations/xsl.language-configuration.json">
+      </languageConfiguration>
+   </extension>
+
+   <!-- XSD -->
+
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            file-extensions="xsd"
+            id="org.eclipse.lsp4e.xsd"
+            name="XSD"
+            priority="normal"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.tm4e.registry.grammars">
+      <grammar
+            path="./syntaxes/xml.tmLanguage.json"
+            scopeName="text.xml">
+      </grammar>
+      <scopeNameContentTypeBinding
+            contentTypeId="org.eclipse.lsp4e.xsd"
+            scopeName="text.xml">
+      </scopeNameContentTypeBinding>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.eclipse.lsp4e.xsd"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+   
 </plugin>
