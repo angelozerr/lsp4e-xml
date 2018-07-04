@@ -34,7 +34,7 @@
 		<repository>
 			<id>photon</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/eclipse/updates/4.8-I-builds</url>
+			<url>http://download.eclipse.org/eclipse/updates/4.9-I-builds</url>
 		</repository>
 		<repository>
 			<id>license-feature</id>
@@ -175,6 +175,6 @@
 		</snapshotRepository>
 	</distributionManagement>
 
-	<name>Eclipse Plugin for Freemarker - Parent</name>
-	<description>Integration of the Freemarker Language Server with LSP4E.</description>
+	<name>Eclipse Plugin for XML - Parent</name>
+	<description>Integration of the XML Language Server with LSP4E.</description>
 </project>
