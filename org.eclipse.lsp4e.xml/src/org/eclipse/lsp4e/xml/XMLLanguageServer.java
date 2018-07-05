@@ -37,9 +37,10 @@ import org.osgi.framework.Bundle;
  */
 public class XMLLanguageServer extends ProcessStreamConnectionProvider {
 
-	private static final String[] SERVER_JARS = new String[] { "gson-2.7.jar", "org.eclipse.lsp4j-0.4.1.jar",
-			"org.eclipse.lsp4j.jsonrpc-0.4.1.jar", "org.eclipse.lsp4xml-0.0.1-SNAPSHOT.jar",
-			"org.eclipse.lsp4xml.contentmodel-0.0.1-SNAPSHOT.jar", "xercesImpl-2.11.0.jar", "xml-apis-1.4.01.jar" };
+	private static final String[] SERVER_JARS = new String[] { "gson-2.7.jar", "guava-22.0-rc1-android.jar",
+			"org.eclipse.lsp4j-0.4.1.jar", "org.eclipse.lsp4j.jsonrpc-0.4.1.jar",
+			"org.eclipse.lsp4xml-0.0.1-SNAPSHOT.jar", "org.eclipse.lsp4xml.contentmodel-0.0.1-SNAPSHOT.jar",
+			"xercesImpl-2.11.0.jar", "xml-apis-1.4.01.jar" };
 
 	public XMLLanguageServer() {
 		super(computeCommands(), computeWorkingDir());
