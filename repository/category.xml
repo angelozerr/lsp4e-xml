@@ -3,7 +3,7 @@
    <feature id="tm-feature" version="0.0.0">
       <category name="Dependencies"/>
    </feature>
-   <feature url="features/org.eclipse.lsp4e.freemarker.feature_1.0.0.qualifier.jar" id="org.eclipse.lsp4e.freemarker.feature" version="1.0.0.qualifier">
+   <feature url="features/org.eclipse.lsp4e.xml.feature_1.0.0.qualifier.jar" id="org.eclipse.lsp4e.xml.feature" version="1.0.0.qualifier">
       <category name="XML LSP4E"/>
    </feature>
    <bundle id="org.eclipse.ui.genericeditor" version="0.0.0">
