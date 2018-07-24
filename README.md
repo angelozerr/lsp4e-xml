@@ -3,7 +3,7 @@
 Eclipse XML LSP
 ===========================
 
-The `LSP4e XML` is a an Eclipse plugin for XML based on:
+The `LSP4e XML` is an Eclipse plugin for XML based on:
 
 * [Eclipse LSP4E](https://projects.eclipse.org/projects/technology.lsp4e) to consume the [XML Language Server](https://github.com/angelozerr/xml-languageserver) inside Eclipse.
 * [Eclipse TM4E](https://projects.eclipse.org/projects/technology.tm4e) to support XML syntax coloration based on TextMate grammar. 
