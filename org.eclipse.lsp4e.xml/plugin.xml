@@ -15,7 +15,8 @@
       <server
             class="org.eclipse.lsp4e.xml.XMLLanguageServer"
             id="org.eclipse.lsp4e.xml"
-            label="XML Language Server" >
+            label="XML Language Server" 
+            serverInterface="toremove.org.eclipse.lsp4e.operations.folding.XMLLanguageServerInterface">            
       </server>
       <contentTypeMapping
             contentType="org.eclipse.core.runtime.xml"
@@ -23,6 +24,22 @@
       </contentTypeMapping>
    </extension>
 
+   <extension
+         point="org.eclipse.ui.genericeditor.foldingReconcilers">
+      <foldingReconciler
+            class="toremove.org.eclipse.lsp4e.operations.folding.LSPFoldingReconciler"
+            contentType="org.eclipse.core.runtime.text">
+         <enabledWhen>
+            <with
+                  variable="editorInput">
+               <test
+                     property="org.eclipse.lsp4e.hasLanguageServer">
+               </test>
+            </with>
+         </enabledWhen>
+      </foldingReconciler>
+   </extension>
+   
    <extension
          point="org.eclipse.tm4e.registry.grammars">
       <grammar
