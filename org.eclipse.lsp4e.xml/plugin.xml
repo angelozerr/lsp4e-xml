@@ -15,31 +15,26 @@
       <server
             class="org.eclipse.lsp4e.xml.XMLLanguageServer"
             id="org.eclipse.lsp4e.xml"
-            label="XML Language Server" 
-            serverInterface="toremove.org.eclipse.lsp4e.operations.folding.XMLLanguageServerInterface">            
+            label="XML Language Server"
+            serverInterface="org.eclipse.lsp4e.xml.XMLLanguageServerInterface">            
       </server>
       <contentTypeMapping
             contentType="org.eclipse.core.runtime.xml"
             id="org.eclipse.lsp4e.xml">
       </contentTypeMapping>
+      <contentTypeMapping
+            contentType="org.eclipse.lsp4e.xsl"
+            id="org.eclipse.lsp4e.xml">
+      </contentTypeMapping>
+      <contentTypeMapping
+            contentType="org.eclipse.lsp4e.xsd"
+            id="org.eclipse.lsp4e.xml">
+      </contentTypeMapping>
+      <contentTypeMapping
+            contentType="org.eclipse.lsp4e.dtd"
+            id="org.eclipse.lsp4e.xml">
+      </contentTypeMapping>      
    </extension>
-
-   <extension
-         point="org.eclipse.ui.genericeditor.foldingReconcilers">
-      <foldingReconciler
-            class="toremove.org.eclipse.lsp4e.operations.folding.LSPFoldingReconciler"
-            contentType="org.eclipse.core.runtime.text">
-         <enabledWhen>
-            <with
-                  variable="editorInput">
-               <test
-                     property="org.eclipse.lsp4e.hasLanguageServer">
-               </test>
-            </with>
-         </enabledWhen>
-      </foldingReconciler>
-   </extension>
-   
    <extension
          point="org.eclipse.tm4e.registry.grammars">
       <grammar
@@ -141,4 +136,60 @@
       </editorContentTypeBinding>
    </extension>
    
+   <extension
+         point="org.eclipse.ui.genericeditor.autoEditStrategies">
+      <autoEditStrategy
+            class="org.eclipse.lsp4e.xml.CloseTagAutoEditStrategy"
+            contentType="org.eclipse.core.runtime.xml">
+      </autoEditStrategy>
+   </extension>
+
+ <!-- DTD -->
+
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="dtd"
+            id="org.eclipse.lsp4e.dtd"
+            name="DTD"
+            priority="normal"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.tm4e.registry.grammars">
+      <grammar
+            path="./syntaxes/xml.tmLanguage.json"
+            scopeName="text.xml">
+      </grammar>
+      <scopeNameContentTypeBinding
+            contentTypeId="org.eclipse.lsp4e.dtd"
+            scopeName="text.xml">
+      </scopeNameContentTypeBinding>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.eclipse.lsp4e.dtd"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+   
+ <!-- Preference Pages -->          		
+  <extension
+         point="org.eclipse.ui.preferencePages">		      
+      <page
+            name="%XMLPreferencePage.name"        
+            class="org.eclipse.lsp4e.xml.preferences.XMLPreferencePage"
+            id="org.eclipse.lsp4e.xml.preferences"
+            category="org.eclipse.lsp4e.preferences">
+      </page>
+      <page
+            name="%XMLCatalogPreferencePage.name"        
+            class="org.eclipse.lsp4e.xml.preferences.XMLCatalogPreferencePage"
+            id="org.eclipse.lsp4e.xml.preferences.catalog"
+            category="org.eclipse.lsp4e.xml.preferences">
+      </page>
+  </extension>   
 </plugin>
